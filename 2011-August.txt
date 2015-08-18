@@ -1,0 +1,47 @@
+From bharanikumariyerphp at gmail.com  Mon Aug 15 09:21:42 2011
+From: bharanikumariyerphp at gmail.com (bharani kumar)
+Date: Mon, 15 Aug 2011 12:51:42 +0530
+Subject: how to find and replace a word
+Message-ID: <CA+6dBGffQ653oZoMwJMpcH0VZtO53E3ZA1cwi8LbGbmdJ+8WHg@mail.gmail.com>
+
+I have bunch of ms-word document, i want to find a word Apple and replace it
+to banana ,
+
+
+around 200 msword document in folder,
+
+Here is the small snippet which i tried,
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+use Win32::OLE::Const 'Microsoft Word';
+use Win32::OLE;
+use Win32::OLE::Enum;
+
+my $filename;
+my $word = Win32::OLE->new('Word.Application') or die "Could not find
+Word.\n";
+$filename = "msword.doc";
+my $doc = $word->Documents->Open($filename);
+my $content = Win32::OLE::valof  $doc->{Content};
+#  my $content = $doc->Invoke('');
+$content->{Text} =~ s/Apple /banana/ig;
+$doc->{Content} = $content;
+$doc->Save();
+$doc->Close();
+$word->Quit();
+
+
+Use of uninitialized value in substitution (s///) at word_find_replace.plline 1
+4.
+Can't call method "Save" on unblessed reference at word_find_replace.pl line
+16.
+
+
+Thanks
+Bharanikumar.B.S
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/perl-begin-help/attachments/20110815/10fd9c94/attachment.html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> how to find and replace a word
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/perl-begin-help/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:perl-begin-help%40lists.berlios.de?Subject=Re%3A%20how%20to%20find%20and%20replace%20a%20word&In-Reply-To=%3CCA%2B6dBGffQ653oZoMwJMpcH0VZtO53E3ZA1cwi8LbGbmdJ%2B8WHg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>how to find and replace a word</H1>
+    <B>bharani kumar</B> 
+    <A HREF="mailto:perl-begin-help%40lists.berlios.de?Subject=Re%3A%20how%20to%20find%20and%20replace%20a%20word&In-Reply-To=%3CCA%2B6dBGffQ653oZoMwJMpcH0VZtO53E3ZA1cwi8LbGbmdJ%2B8WHg%40mail.gmail.com%3E"
+       TITLE="how to find and replace a word">bharanikumariyerphp at gmail.com
+       </A><BR>
+    <I>Mon Aug 15 09:21:42 CEST 2011</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I have bunch of ms-word document, i want to find a word Apple and replace it
+to banana ,
+
+
+around 200 msword document in folder,
+
+Here is the small snippet which i tried,
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+use Win32::OLE::Const 'Microsoft Word';
+use Win32::OLE;
+use Win32::OLE::Enum;
+
+my $filename;
+my $word = Win32::OLE-&gt;new('Word.Application') or die &quot;Could not find
+Word.\n&quot;;
+$filename = &quot;msword.doc&quot;;
+my $doc = $word-&gt;Documents-&gt;Open($filename);
+my $content = Win32::OLE::valof  $doc-&gt;{Content};
+#  my $content = $doc-&gt;Invoke('');
+$content-&gt;{Text} =~ s/Apple /banana/ig;
+$doc-&gt;{Content} = $content;
+$doc-&gt;Save();
+$doc-&gt;Close();
+$word-&gt;Quit();
+
+
+Use of uninitialized value in substitution (s///) at word_find_replace.plline 1
+4.
+Can't call method &quot;Save&quot; on unblessed reference at word_find_replace.pl line
+16.
+
+
+Thanks
+Bharanikumar.B.S
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/perl-begin-help/attachments/20110815/10fd9c94/attachment.html">https://lists.berlios.de/pipermail/perl-begin-help/attachments/20110815/10fd9c94/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/perl-begin-help">More information about the Perl-begin-help
+mailing list</a><br>
+</body></html>

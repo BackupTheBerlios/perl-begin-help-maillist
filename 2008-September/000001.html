@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Fw: need help with subroutines &amp; funtions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/perl-begin-help/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:perl-begin-help%40lists.berlios.de?Subject=Re%3A%20Fw%3A%20need%20help%20with%20subroutines%20%26%20funtions&In-Reply-To=%3C347122.95557.qm%40web45716.mail.sp1.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Fw: need help with subroutines &amp; funtions</H1>
+    <B>Raul Ruiz Jr.</B> 
+    <A HREF="mailto:perl-begin-help%40lists.berlios.de?Subject=Re%3A%20Fw%3A%20need%20help%20with%20subroutines%20%26%20funtions&In-Reply-To=%3C347122.95557.qm%40web45716.mail.sp1.yahoo.com%3E"
+       TITLE="Fw: need help with subroutines &amp; funtions">fast.linux at yahoo.com
+       </A><BR>
+    <I>Mon Sep  8 12:05:15 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">lib.pl funtion question
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+--- On Mon, 9/8/08, Raul Ruiz Jr. &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/perl-begin-help">fast.linux at yahoo.com</A>&gt; wrote:
+
+From: Raul Ruiz Jr. &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/perl-begin-help">fast.linux at yahoo.com</A>&gt;
+Subject: need help with subroutines &amp; funtions
+To: &quot;perl.org&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/perl-begin-help">beginners at perl.org</A>&gt;, &quot;Perl Programmers&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/perl-begin-help">beginners-help at perl.org</A>&gt;, &quot;OC-Perl Mongers&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/perl-begin-help">oc-pm at pm.org</A>&gt;
+Date: Monday, September 8, 2008, 10:04 AM
+
+
+
+
+
+
+
+I am taking an online ceu course in scripting with Unix. I have been stumped by this project. Can anyone out there help me out a bit. I created a script at the bottom and it does not quite work. What am I missing?&#160;
+I know I am missing some thing but this is my first time working with perl. I know it will take me a while to get good at it but so far its been fun.&#160; I would appreciate the help if possible. 
+Here is my project and below is my code.
+&#160;
+Write a script called obj.pl and a library called obj-lib.pl. The library should contain a function that takes in an array of numbers (of arbitrary size). The function will then calculate the average of the numbers, the total of all of the numbers added together, and a new array of numbers which is comprised of the other numbers divided by 2. It will then return a new list with all of that information.
+
+The script file, obj.pl should get a list of numbers from the user (either via STDIN or a list of arguments) and call the library function.
+&#160;
+Here is my script to solve the project. 
+&#160;
+#!/usr/bin/perl
+
+require 'lib.pl';
+
+@userArray = &lt;STDIN&gt;;
+
+$sum = sumIt(@userArray);
+
+print $sum;
+
+#_END_
+&#160;
+And then for&#160;my library:
+
+sub sumIt(){
+&#160;&#160; @functionArray = @_;
+&#160;&#160; foreach $line(@functionArray){
+&#160;&#160; $functionSum += $line;
+&#160;&#160; }
+&#160;&#160; return $functionSum;
+}
+
+1;
+
+
+
+
+      
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/perl-begin-help/attachments/20080908/8417124d/attachment.html">https://lists.berlios.de/pipermail/perl-begin-help/attachments/20080908/8417124d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">lib.pl funtion question
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/perl-begin-help">More information about the Perl-begin-help
+mailing list</a><br>
+</body></html>

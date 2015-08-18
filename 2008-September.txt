@@ -1,0 +1,116 @@
+From fast.linux at yahoo.com  Mon Sep  1 10:54:48 2008
+From: fast.linux at yahoo.com (Raul Ruiz Jr.)
+Date: Mon, 1 Sep 2008 01:54:48 -0700 (PDT)
+Subject: lib.pl funtion question
+Message-ID: <944323.52440.qm@web45709.mail.sp1.yahoo.com>
+
+ Here is a basic card shuffling program I wrote. 
+
+I am learning about developing perl libraries. How do I remove my code
+that does the shuffling and include it as another function in a lib.pl.  After the first "hand" is dealt, call the
+shuffling function again before dealing another, different hand.
+
+
+?
+I figured out how to make a shuffling script but not sure how to make this work in a separate lib.pl script? Can some one point me in the right direction?
+Thanks for your time.
+
+#!/usr/bin/perl
+
+my @startingdeck = ("A H","2 H","3 H","4 H","5 H","6 H","7 H","8 H",
+????????????????? "9 H","10 H","J H","Q H","K H",
+????????????????? "A D","2 D","3 D","4 D","5 D","6 D","7 D","8 D",
+????????????????? "9 D","10 D","J D","Q D","K D",
+????????????????? "A C","2 C","3 C","4 C","5 C","6 C","7 C","8 C",
+????????????????? "9 C","10 C","J C","Q C","K C",
+????????????????? "A S","2 S","3 S","4 S","5 S","6 S","7 S","8 S",
+????????????????? "9 S","10 S","J S","Q S","K S");
+
+my @right;
+my @left;
+SHUFFLE:
+??? unshift @left, pop @startingdeck for 1..26;
+@right = @startingdeck;
+@startingdeck = ();
+while(@left or @right){
+??? if (rand() < 0.5){
+???????? @left and push @startingdeck, shift @left
+?? }else{
+???????? @right and push @startingdeck, shift @right
+?? }
+};
+
+rand() < 0.9 and goto SHUFFLE;
+
+print "the top five cards are @startingdeck[0..4]\n";
+
+
+
+      
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/perl-begin-help/attachments/20080901/d6c35402/attachment.html>
+
+From fast.linux at yahoo.com  Mon Sep  8 12:05:15 2008
+From: fast.linux at yahoo.com (Raul Ruiz Jr.)
+Date: Mon, 8 Sep 2008 03:05:15 -0700 (PDT)
+Subject: Fw: need help with subroutines & funtions
+Message-ID: <347122.95557.qm@web45716.mail.sp1.yahoo.com>
+
+
+
+--- On Mon, 9/8/08, Raul Ruiz Jr. <fast.linux at yahoo.com> wrote:
+
+From: Raul Ruiz Jr. <fast.linux at yahoo.com>
+Subject: need help with subroutines & funtions
+To: "perl.org" <beginners at perl.org>, "Perl Programmers" <beginners-help at perl.org>, "OC-Perl Mongers" <oc-pm at pm.org>
+Date: Monday, September 8, 2008, 10:04 AM
+
+
+
+
+
+
+
+I am taking an online ceu course in scripting with Unix. I have been stumped by this project. Can anyone out there help me out a bit. I created a script at the bottom and it does not quite work. What am I missing??
+I know I am missing some thing but this is my first time working with perl. I know it will take me a while to get good at it but so far its been fun.? I would appreciate the help if possible. 
+Here is my project and below is my code.
+?
+Write a script called obj.pl and a library called obj-lib.pl. The library should contain a function that takes in an array of numbers (of arbitrary size). The function will then calculate the average of the numbers, the total of all of the numbers added together, and a new array of numbers which is comprised of the other numbers divided by 2. It will then return a new list with all of that information.
+
+The script file, obj.pl should get a list of numbers from the user (either via STDIN or a list of arguments) and call the library function.
+?
+Here is my script to solve the project. 
+?
+#!/usr/bin/perl
+
+require 'lib.pl';
+
+@userArray = <STDIN>;
+
+$sum = sumIt(@userArray);
+
+print $sum;
+
+#_END_
+?
+And then for?my library:
+
+sub sumIt(){
+?? @functionArray = @_;
+?? foreach $line(@functionArray){
+?? $functionSum += $line;
+?? }
+?? return $functionSum;
+}
+
+1;
+
+
+
+
+      
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/perl-begin-help/attachments/20080908/8417124d/attachment.html>
+
